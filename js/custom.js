@@ -408,7 +408,7 @@ jQuery(document).ready(function($){
 					 confirm('The page save failed.');
 				   },
 				  success: function (response) {
-					$('#ajax_contact_msg').html(response);
+					$('#ajax_contact_msg2').text(response);
 					$('#ajax_contact_msg').slideDown('slow');
 					if (response.match('success') != null) $(This).slideUp('slow');
 				 }
