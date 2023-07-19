@@ -1102,6 +1102,6 @@
 	
 	#loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999999999; text-align: center; overflow: hidden; background-size: cover; background-position: center center; background-position: center bottom; 
 	background: #252525; }
-	#loader-wrapper .large-header h1 { text-transform: none; font-size: 35px; font-style:italic; font-weight: 300; color: #252525; bottom: 0; right: 0; left: 0; margin: 0; position: absolute; width: 100%; padding: 20px 10px; font-weight: 300; }
+	#loader-wrapper .large-header h1 { text-transform: none; font-size: 35px; font-style:italic; font-weight: 300; color: #ff0000; bottom: 0; right: 0; left: 0; margin: 0; position: absolute; width: 100%; padding: 20px 10px; font-weight: 300; }
 	#loader-wrapper .large-header h1.top { top: 0; bottom: auto; }
 	#loader-wrapper .large-header h1 span {  font-weight: 600; }
