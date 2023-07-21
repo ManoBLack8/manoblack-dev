@@ -340,7 +340,7 @@
 	
 	#header #menu-container { float: left; width: 100%;  padding: 28px 0px; }
 	#logo { float: left; }
-	#logo a, .logo a { font-family: 'Open Sans', sans-serif; color: #fff; text-transform: uppercase; font-weight: 700; font-size: 30px; border: 7px double #fff; padding: 5px 10px 6px; float: left; }
+	#logo a, .logo a { font-family: 'Open Sans', sans-serif; color: #fff; text-transform: uppercase; font-weight: 700; font-size: 30px; padding: 5px 10px 6px; float: left; }
 	#logo a span, .logo a span { margin: 0 -7px; }
 	
 	.logo { float: none; display: inline-block; }
