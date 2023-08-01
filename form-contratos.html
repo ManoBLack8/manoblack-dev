@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    ]    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <!-- **CSS - stylesheets** -->
+    <link id="default-css" href="style.css" rel="stylesheet" media="all" />
+    <link id="shortcodes-css" href="css/shortcodes.css" rel="stylesheet" media="all" />
+    <link href="css/responsive.css" rel="stylesheet" media="all" /> 
+    
+    <!-- **Additional stylesheets** -->   
+	<link href="css/isotope.css" rel="stylesheet" type="text/css" media="all" />    
+	<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" media="all" />
+   	<link href="css/animations.css" rel="stylesheet" media="all" />   
+
+    <!-- **Skin stylesheet** -->
+    <link id="skin-css" href="skins/yellow/style.css" rel="stylesheet" media="all" />
+    
+    <!-- **Font Awesome** -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <script src="js/modernizr-2.6.2.min.js"></script>
+</head>
+<body style="background-color: black;">
+    <div class="dt-sc-two-third column">
+        <div class="dt-sc-contact-form">
+            <div id="ajax_contact_msg"></div>
+            <form method="post" action="php/envioContrato.php" class="dt-sc-enquiry-form">
+                <div><strong>DADOS DO CLIENTE</strong></div>
+                <input type="text" required="" name="txtname" title="Por favor, insira seu nome" placeholder="Digite o nome do Cliente">
+                <input type="text" required="" name="txtdoc" title="Por favor, insira o documento do cliente" placeholder="Digite o documento do Cliente">
+                <input type="email" required="" autocomplete="off" name="txtemail" title="Por favor, insira um e-mail válido" placeholder="Digite o e-mail do Cliente">
+                <input type="text" required="" autocomplete="off" name="txtetel" title="Por favor, insira um número de telefone válido" placeholder="Digite o telefone do Cliente">
+                <div><strong>DADOS DO SERVIÇO</strong></div>
+                <input type="text" required="" autocomplete="off" name="txttitulo" title="Por favor, insira o título do serviço" placeholder="Digite o Título do SERVIÇO">
+                <input type="text" required="" autocomplete="off" name="txtobjetivo" title="Por favor, insira o objetivo do serviço" placeholder="Digite o Objetivo do serviço">
+                <input type="text" required="" autocomplete="off" name="txtprazo" title="Por favor, insira o prazo" placeholder="Digite o Prazo">
+                <input type="text" required="" autocomplete="off" name="txtvalor" title="Por favor, insira o valor do serviço" placeholder="Digite o Valor do SERVIÇO">
+                <input type="text" required="" autocomplete="off" name="txtmensalidade" title="Por favor, insira o valor da mensalidade" placeholder="Digite o Valor da Mensalidade">
+                <input type="text" required="" autocomplete="off" name="txtadicionais" title="Por favor, insira informações adicionais" placeholder="Digite os Adicionais">
+                <textarea required="" rows="3" cols="5" name="txtmessage" title="Por favor, insira suas observações" placeholder="Digite as Observações"></textarea>
+                <input type="submit" value="ENVIAR" name="submit" class="submit">
+            </form>
+            <div id="ajax_contact_msg2"></div>
+        </div>
+    </div>
+</body>
+</html> 
