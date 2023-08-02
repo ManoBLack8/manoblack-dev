@@ -1,7 +1,8 @@
 <?php
-require_once("../var_Ambiente.php"); 
+require_once("../var_Ambiente.php");
+
 class Conexao
-{   
+{
     private static $host = $host_db; // Endereço do banco de dados
     private static $dbname = $database; // Nome do banco de dados
     private static $username = $user_db; // Nome de usuário do banco de dados
@@ -37,5 +38,47 @@ class Conexao
 
         $stmt = $conexao->prepare($sql);
         $stmt->execute($data);
+    }
+
+    public static function update($table, $data, $where)
+    {
+        $conexao = self::getConexao();
+
+        $set = "";
+        foreach ($data as $coluna => $valor) {
+            $set .= "$coluna = :$coluna, ";
+        }
+        $set = rtrim($set, ', ');
+
+        $sql = "UPDATE $table SET $set WHERE $where";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute($data);
+    }
+
+    public static function delete($table, $where)
+    {
+        $conexao = self::getConexao();
+
+        $sql = "DELETE FROM $table WHERE $where";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+    }
+
+    public static function select($table, $where = null)
+    {
+        $conexao = self::getConexao();
+
+        $whereClause = '';
+        if ($where !== null) {
+            $whereClause = "WHERE $where";
+        }
+
+        $sql = "SELECT * FROM $table $whereClause";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
