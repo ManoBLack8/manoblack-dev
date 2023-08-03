@@ -1,7 +1,6 @@
 <?php
-
 use Conexao;
- class Cliente
+ class Clientes
  {
      private $id;
      private $nome;
@@ -60,6 +59,11 @@ use Conexao;
      public function CadastrarCliente($Cliente)
      {
         Conexao::insert($this->table, $Cliente);
+     }
+
+     public function projetosCliente($Cliente, $projeto)
+     {
+        Conexao::select($this->table, "cliente_projeto = {$projeto}");
      }
  }
  
