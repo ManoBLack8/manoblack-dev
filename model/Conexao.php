@@ -81,4 +81,17 @@ class Conexao
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function selectEsp($table, $data, $where = null)
+    {
+        $conexao = self::getConexao();
+
+        $whereClause = '';
+        if ($where !== null) {
+            $whereClause = "WHERE $where";
+        }
+
+        $sql = "SELECT * FROM $table $whereClause";
+        
+    }
 }
