@@ -809,11 +809,12 @@
                                 <div class="dt-sc-two-third column">
                                     <div class="dt-sc-contact-form">
                                     	<div id="ajax_contact_msg"></div>
-                                        <form method="post" action="php/envioFormulario.php" class="dt-sc-enquiry-form">
-                                            <input type="text" required="" name="txtname" title="Please enter your name" placeholder="SEU NOME">
-                                            <input type="email" required="" autocomplete="off" name="txtemail" title="Please enter your valid email_id" placeholder="SEU EMAIL">
-                                            <textarea required="" rows="3" cols="5" name="txtmessage" title=" Please enter your message" placeholder="SUA SUGESTÂO"></textarea>
-                                            <input type="submit" value="ENVIAR" name="submit" class="submit">
+                                        <form method="post" action="" class="dt-sc-enquiry-form">
+                                            <input type="text" required="" name="nome" title="Please enter your name" placeholder="SEU NOME">
+                                            <input type="email" required="" autocomplete="off" name="email" title="Please enter your valid email_id" placeholder="SEU EMAIL">
+                                            <textarea required="" rows="3" cols="5" name="msg" title=" Please enter your message" placeholder="SUA SUGESTÂO"></textarea>
+                                            <div id="mensagem-i"></div>
+                                            <input type="button" id="#btncontato" value="ENVIAR" name="submit" class="submit">
                                         </form>
                                         <div id="ajax_contact_msg2"></div>
                                     </div>
@@ -884,7 +885,35 @@
     
 <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK94346XB3"></script>
-
+    
+    <script type="text/javascript">
+        $('#btncontato').click(function(event) {
+        event.preventDefault();
+        $('#mensagem-i').removeClass('text-success')
+        $('#mensagem-i').removeClass('text-danger')
+        $('#mensagem-i').addClass('text-info')
+         $('#mensagem-i').text('Enviando...')
+        $.ajax({
+            url:"https://apimano.000webhostapp.com/mail.php",
+            method:"post",
+            data: $('form').serialize(),
+            dataType: "text",
+            success: function(msg) {
+                if (msg.trim() === 'Enviado com Sucesso!') {
+                    $('#mensagem-i').removeClass('text-info')
+                    $('#mensagem-i').addClass('text-success')
+                    $('#mensagem-i').text(msg);
+                }
+    
+                else{
+                    $('#mensagem-i').text(msg)
+    
+                }
+            }
+        })
+    
+    })
+    </script>
 
 </body>
 </html>
