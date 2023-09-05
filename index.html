@@ -814,7 +814,7 @@
                                             <input type="email" required="" autocomplete="off" name="email" title="Please enter your valid email_id" placeholder="SEU EMAIL">
                                             <textarea required="" rows="3" cols="5" name="msg" title=" Please enter your message" placeholder="SUA SUGESTÂO"></textarea>
                                             <div id="mensagem-i"></div>
-                                            <input type="button" id="#btncontato" value="ENVIAR" name="submit" class="submit">
+                                            <input type="button" id="btncontato" value="ENVIAR" name="submit" class="submit">
                                         </form>
                                         <div id="ajax_contact_msg2"></div>
                                     </div>
@@ -886,33 +886,37 @@
 <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK94346XB3"></script>
     
-    <script type="text/javascript">
-        $('#btncontato').click(function(event) {
-        event.preventDefault();
-        $('#mensagem-i').removeClass('text-success')
-        $('#mensagem-i').removeClass('text-danger')
-        $('#mensagem-i').addClass('text-info')
-         $('#mensagem-i').text('Enviando...')
-        $.ajax({
-            url:"https://apimano.000webhostapp.com/mail.php",
-            method:"post",
-            data: $('form').serialize(),
-            dataType: "text",
-            success: function(msg) {
-                if (msg.trim() === 'Enviado com Sucesso!') {
-                    $('#mensagem-i').removeClass('text-info')
-                    $('#mensagem-i').addClass('text-success')
-                    $('#mensagem-i').text(msg);
-                }
+    <script>
+    document.getElementById('btncontato').addEventListener('click', function(event) {
+    event.preventDefault();
     
-                else{
-                    $('#mensagem-i').text(msg)
-    
+    var mensagem = document.getElementById('mensagem-i');
+    mensagem.classList.remove('text-success');
+    mensagem.classList.remove('text-danger');
+    mensagem.classList.add('text-info');
+    mensagem.textContent = 'Enviando...';
+
+    var formData = new FormData(document.querySelector('form'));
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://apimano.000webhostapp.com/mail.php', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                var response = xhr.responseText.trim();
+                if (response === 'Enviado com Sucesso!') {
+                    mensagem.classList.remove('text-info');
+                    mensagem.classList.add('text-success');
+                    mensagem.textContent = response;
+                } else {
+                    mensagem.textContent = response;
                 }
             }
-        })
-    
-    })
+        }
+    };
+    xhr.send(formData);
+});
+
     </script>
 
 </body>
